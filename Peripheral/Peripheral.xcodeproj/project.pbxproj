@@ -21,6 +21,7 @@
 		CCAF0E371849234B00541A2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAF0E191849234B00541A2D /* UIKit.framework */; };
 		CCAF0E3F1849234B00541A2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCAF0E3D1849234B00541A2D /* InfoPlist.strings */; };
 		CCAF0E411849234B00541A2D /* PeripheralTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAF0E401849234B00541A2D /* PeripheralTests.m */; };
+		CCAF0E8C1849263100541A2D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAF0E8B1849263100541A2D /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		CCAF0E3C1849234B00541A2D /* PeripheralTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PeripheralTests-Info.plist"; sourceTree = "<group>"; };
 		CCAF0E3E1849234B00541A2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CCAF0E401849234B00541A2D /* PeripheralTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PeripheralTests.m; sourceTree = "<group>"; };
+		CCAF0E8B1849263100541A2D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		CCAF0E8D18492A1400541A2D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCAF0E8C1849263100541A2D /* CoreBluetooth.framework in Frameworks */,
 				CCAF0E181849234B00541A2D /* CoreGraphics.framework in Frameworks */,
 				CCAF0E1A1849234B00541A2D /* UIKit.framework in Frameworks */,
 				CCAF0E161849234B00541A2D /* Foundation.framework in Frameworks */,
@@ -101,6 +105,7 @@
 		CCAF0E141849234B00541A2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CCAF0E8B1849263100541A2D /* CoreBluetooth.framework */,
 				CCAF0E151849234B00541A2D /* Foundation.framework */,
 				CCAF0E171849234B00541A2D /* CoreGraphics.framework */,
 				CCAF0E191849234B00541A2D /* UIKit.framework */,
@@ -119,6 +124,7 @@
 				CCAF0E2B1849234B00541A2D /* TWViewController.m */,
 				CCAF0E2D1849234B00541A2D /* Images.xcassets */,
 				CCAF0E1C1849234B00541A2D /* Supporting Files */,
+				CCAF0E8D18492A1400541A2D /* Constants.h */,
 			);
 			path = Peripheral;
 			sourceTree = "<group>";
