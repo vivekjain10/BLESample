@@ -109,7 +109,7 @@
     
     for (CBCharacteristic *characterstic in service.characteristics) {
         if([characterstic.UUID isEqual:[CBUUID UUIDWithString:CHARACTERISTIC_UUID]]) {
-            [peripheral setNotifyValue:YES forCharacteristic:characterstic];
+            [peripheral readValueForCharacteristic:characterstic];
         }
     }
 }
@@ -128,23 +128,6 @@
     [self.centralManager cancelPeripheralConnection:peripheral];
 }
 
-- (void)peripheral:(CBPeripheral *)peripheral didUpdateNotificationStateForCharacteristic:(CBCharacteristic *)characteristic
-             error:(NSError *)error
-{
-    if (error) {
-        NSLog(@"Error changing notification state: %@", error.localizedDescription);
-    }
-    
-    if(![characteristic.UUID isEqual:[CBUUID UUIDWithString:CHARACTERISTIC_UUID]]) return;
-    
-    if(characteristic.isNotifying) {
-        NSLog(@"Notification for %@", characteristic);
-    } else {
-        NSLog(@"Notification stopped for %@", characteristic);
-        [self.centralManager cancelPeripheralConnection:peripheral];
-    }
-}
-
 #pragma mark - Private Methods
 - (void)scan
 {
@@ -157,22 +140,6 @@
     if (self.peripheral.state == CBPeripheralStateDisconnected) {
         return;
     }
-    
-    if (self.peripheral.services != nil) {
-        for (CBService *service in self.peripheral.services) {
-            if (service.characteristics != nil) {
-                for (CBCharacteristic *characteristic in service.characteristics) {
-                    if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:CHARACTERISTIC_UUID]]) {
-                        if (characteristic.isNotifying) {
-                            [self.peripheral setNotifyValue:NO forCharacteristic:characteristic];
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    
     [self.centralManager cancelPeripheralConnection:self.peripheral];
 }
 
