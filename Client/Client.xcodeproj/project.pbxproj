@@ -21,6 +21,7 @@
 		CCAF0E781849241300541A2D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAF0E5A1849241200541A2D /* UIKit.framework */; };
 		CCAF0E801849241300541A2D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CCAF0E7E1849241300541A2D /* InfoPlist.strings */; };
 		CCAF0E821849241300541A2D /* ClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CCAF0E811849241300541A2D /* ClientTests.m */; };
+		CCAF0E8F1849369900541A2D /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCAF0E8E1849369900541A2D /* CoreBluetooth.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		CCAF0E7D1849241300541A2D /* ClientTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ClientTests-Info.plist"; sourceTree = "<group>"; };
 		CCAF0E7F1849241300541A2D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CCAF0E811849241300541A2D /* ClientTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClientTests.m; sourceTree = "<group>"; };
+		CCAF0E8E1849369900541A2D /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		CCAF0E90184939A100541A2D /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../../Peripheral/Peripheral/Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCAF0E8F1849369900541A2D /* CoreBluetooth.framework in Frameworks */,
 				CCAF0E591849241200541A2D /* CoreGraphics.framework in Frameworks */,
 				CCAF0E5B1849241200541A2D /* UIKit.framework in Frameworks */,
 				CCAF0E571849241200541A2D /* Foundation.framework in Frameworks */,
@@ -101,6 +105,7 @@
 		CCAF0E551849241200541A2D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CCAF0E8E1849369900541A2D /* CoreBluetooth.framework */,
 				CCAF0E561849241200541A2D /* Foundation.framework */,
 				CCAF0E581849241200541A2D /* CoreGraphics.framework */,
 				CCAF0E5A1849241200541A2D /* UIKit.framework */,
@@ -112,6 +117,7 @@
 		CCAF0E5C1849241200541A2D /* Client */ = {
 			isa = PBXGroup;
 			children = (
+				CCAF0E90184939A100541A2D /* Constants.h */,
 				CCAF0E651849241200541A2D /* TWAppDelegate.h */,
 				CCAF0E661849241200541A2D /* TWAppDelegate.m */,
 				CCAF0E681849241200541A2D /* Main.storyboard */,

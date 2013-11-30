@@ -39,7 +39,7 @@
     [super viewWillDisappear:animated];
 }
 
-#pragma mark - Peripheral Methods
+#pragma mark - Peripheral Manager Methods
 - (void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
     if(peripheral.state != CBPeripheralManagerStatePoweredOn) {
@@ -66,11 +66,12 @@
                   central:(CBCentral *)central didSubscribeToCharacteristic:(CBCharacteristic *)characteristic
 {
     NSLog(@"Central subscribed to characteristic");
+    [self sendData];
 }
 
 - (void)peripheralManager:(CBPeripheralManager *)peripheral central:(CBCentral *)central didUnsubscribeFromCharacteristic:(CBCharacteristic *)characteristic
 {
-    NSLog(@"Cenral unsubscribed from characteristic");
+    NSLog(@"Central unsubscribed from characteristic");
 }
 
 - (void)peripheralManagerIsReadyToUpdateSubscribers:(CBPeripheralManager *)peripheral
