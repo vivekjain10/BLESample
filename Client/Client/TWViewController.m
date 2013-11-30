@@ -24,12 +24,6 @@
     self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [self.centralManager stopScan];
-    [super viewWillDisappear:animated];
-}
-
 #pragma mark - Central Manager Methods
 - (void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
