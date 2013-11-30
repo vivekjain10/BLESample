@@ -50,9 +50,9 @@
     NSLog(@"Peripheral Manager is Powered ON");
     
     self.charateristic = [[CBMutableCharacteristic alloc] initWithType:[CBUUID UUIDWithString:CHARACTERISTIC_UUID]
-                                                            properties:CBCharacteristicPropertyRead
-                                                                 value:[@"someData" dataUsingEncoding:NSUTF8StringEncoding]
-                                                           permissions:CBAttributePermissionsReadable];
+                                                            properties:CBCharacteristicPropertyWriteWithoutResponse
+                                                                 value:nil
+                                                           permissions:CBAttributePermissionsWriteable];
     
     CBMutableService *service = [[CBMutableService alloc] initWithType:[CBUUID UUIDWithString:SERVICE_UUID]
                                                                primary:YES];
@@ -70,6 +70,14 @@
         NSLog(@"Started Advertising");
     }
     
+}
+
+- (void)peripheralManager:(CBPeripheralManager *)peripheral didReceiveWriteRequests:(NSArray *)requests
+{
+    for (CBATTRequest *request in requests) {
+        NSString *stringFromData = [[NSString alloc] initWithData:request.value encoding:NSUTF8StringEncoding];
+        NSLog(@"Received value %@", stringFromData);
+    }
 }
 
 @end

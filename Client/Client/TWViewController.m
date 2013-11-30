@@ -109,23 +109,11 @@
     
     for (CBCharacteristic *characterstic in service.characteristics) {
         if([characterstic.UUID isEqual:[CBUUID UUIDWithString:CHARACTERISTIC_UUID]]) {
-            [peripheral readValueForCharacteristic:characterstic];
+            [peripheral writeValue:[@"someResponseData" dataUsingEncoding:NSUTF8StringEncoding]
+                 forCharacteristic:characterstic
+                              type:CBCharacteristicWriteWithoutResponse];
         }
     }
-}
-
-- (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic
-             error:(NSError *)error
-{
-    if (error) {
-        NSLog(@"Error discovering characteristics: %@", [error localizedDescription]);
-        return;
-    }
-    
-    NSString *stringFromData = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
-    NSLog(@"Received: %@", stringFromData);
-    [peripheral setNotifyValue:NO forCharacteristic:characteristic];
-    [self.centralManager cancelPeripheralConnection:peripheral];
 }
 
 #pragma mark - Private Methods
