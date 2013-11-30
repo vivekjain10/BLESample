@@ -21,7 +21,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
+    self.centralManager = [[CBCentralManager alloc] initWithDelegate:self
+                                                               queue:nil
+                                                             options:@{
+                                                                       CBCentralManagerOptionRestoreIdentifierKey: @"myCentralManagerIdentifier"
+                                                                       }];
 }
 
 #pragma mark - Central Manager Methods
@@ -42,10 +46,6 @@
      advertisementData:(NSDictionary *)advertisementData
                   RSSI:(NSNumber *)RSSI
 {
-    NSLog(@"Peripheral discovered...");
-    //Reject if peripheral is not 'close enough' (~ -22dbB)
-    if(RSSI.integerValue > -15 || RSSI.integerValue < -35) return;
-    
     [self.centralManager stopScan];
     NSLog(@"Discovered %@ at %@", peripheral.name, RSSI);
     
@@ -75,6 +75,12 @@
 {
     NSLog(@"Peripheral disconnected");
     self.peripheral = nil;
+}
+
+- (void)centralManager:(CBCentralManager *)central willRestoreState:(NSDictionary *)dict
+{
+    NSArray *peripherals = dict[CBCentralManagerRestoredStatePeripheralsKey];
+    self.peripheral = [peripherals objectAtIndex:0];
 }
 
 #pragma mark - Peripheral Methods
